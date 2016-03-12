@@ -145,6 +145,9 @@ class Mysql extends \Psecio\Gatekeeper\DataSource
         $properties = $model->getProperties();
 
         foreach ($bind as $column => $name) {
+            if (!isset($properties[$column]['column'])) {
+                throw new \InvalidArgumentException('Column "'.$column. '" is not defined!');
+            }
             $colName = $properties[$column]['column'];
             $update[] = $colName.' = '.$name;
         }
