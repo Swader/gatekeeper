@@ -11,11 +11,11 @@ class CreateUserTable extends \Psecio\Gatekeeper\PhinxMigration
     {
         $tableName = $this->getTableName();
         $users = $this->table($tableName);
-        $users->addColumn('username', 'string', array('limit' => 20))
+        $users->addColumn('username', 'string', array('limit' => 200))
               ->addColumn('password', 'string', array('limit' => 100))
               ->addColumn('email', 'string', array('limit' => 100))
-              ->addColumn('first_name', 'string', array('limit' => 30))
-              ->addColumn('last_name', 'string', array('limit' => 30))
+              ->addColumn('first_name', 'string', array('limit' => 200))
+              ->addColumn('last_name', 'string', array('limit' => 200))
               ->addColumn('status', 'string', array('limit' => 30, 'default' => 'active'))
               ->addColumn('created', 'datetime')
               ->addColumn('updated', 'datetime', array('default' => null))
